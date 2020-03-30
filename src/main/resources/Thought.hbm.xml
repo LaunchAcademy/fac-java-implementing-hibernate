@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Thought" table="deep_thoughts">
+    <meta attribute="class-description">
+      Deep Thoughts recorded in a DB forever
+    </meta>
+    <id name="id" type="long" column="id">
+      <generator class="sequence">
+        <param name="optimizer">none</param>
+        <param name="increment_size">1</param>
+        <param name="sequence_name">deep_thoughts_id_seq</param>
+      </generator>
+    </id>
+    <property name ="description" column="description" type = "string" />
+    <property name ="rating" column="rating" type = "int" />
+  </class>
+</hibernate-mapping>

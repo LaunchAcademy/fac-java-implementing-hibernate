@@ -5,7 +5,7 @@
 ## Hibernate is an Object Relational Mapper (ORM)
 
 - We're bridging the gap between database tables and Java objects
-- We must *map* that bridge: we instruct Java how it connects to the database
+- We must _map_ that bridge: we instruct Java how it connects to the database
 - We can use an XML-based mapping or an Annotation-based mapping
 - We recommend the Annotation-based mapping
 
@@ -32,6 +32,7 @@
 
 - We need the ability to connect to our Postgresql database - we do so via the JDBC driver
 - We need the Hibernate **Engine** known as core - this is what gives us the ability to map Java classes to database tables
+
 ---
 
 ## Install Dependencies - Hibernate Core
@@ -225,6 +226,29 @@ public class Thought {
 
   //...
 }
+```
+
+---
+
+## Now we can use a persistence.xml file
+
+```xml
+// src/main/resources/META-INF/persistence.xml
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.2"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <!-- Define persistence unit -->
+  <persistence-unit name="com.launchacademy.thoughts">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/thoughts" />
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+      <property name="javax.persistence.jdbc.user" value="postgres" />
+      <property name="javax.persistence.jdbc.password" value="password" />
+    </properties>
+  </persistence-unit>
+</persistence>
+
 ```
 
 ---

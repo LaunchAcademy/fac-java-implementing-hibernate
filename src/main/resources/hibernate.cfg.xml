@@ -20,6 +20,6 @@
       thread
     </property>
 
-    <mapping class="Author"/>
+    <mapping class="Thought"/>
   </session-factory>
 </hibernate-configuration>
